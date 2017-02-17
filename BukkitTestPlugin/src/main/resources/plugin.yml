@@ -1,0 +1,4 @@
+name: CommandCreatorTestPluginBukkit
+version: 1.0
+main: fr.skybeast.commandcreator.testplugin.bukkit.Main
+author: SkyBeast

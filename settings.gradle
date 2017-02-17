@@ -1,0 +1,6 @@
+rootProject.name = 'CommandCreator'
+include ':API'
+include ':BukkitImpl'
+include ':BungeeImpl'
+include ':BukkitTestPlugin'
+include ':BungeeTestPlugin'
