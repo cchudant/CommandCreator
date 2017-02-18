@@ -23,8 +23,8 @@ List of features:
 - Source code fully (yes, fully) documented
 - [Command compounds](../src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo2.java)
 
-[Demo1]: ../src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo1.java
-[Demo2]: ../src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo2.java
+[Demo1]: ../BukkitTestPlugin/src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo1.java
+[Demo2]: ../BukkitTestPlugin/src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo2.java
 
 As I suck at creating neat colored text, I would love your contribution for the default configuration.
 
