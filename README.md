@@ -164,4 +164,4 @@ maven {
 
 ```groovy
 compile 'fr.skybeast:commandcreator-api:1.1'
-``
+```
