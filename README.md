@@ -89,8 +89,9 @@ Register command:
 CommandCreator.registerCommands(MyTestCommand.class, plugin);
 ```
 
-You can find a full demonstration [here][Demo1]
-and [here][Demo2].
+### You can find a full demonstration [here][Demo1]and [here][Demo2].
+
+---------------
 
 As I suck at creating neat colored text, I would love your contribution for the default configuration.
 
