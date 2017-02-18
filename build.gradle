@@ -87,7 +87,7 @@ project(":API") {
         key = System.getenv('BINTRAY_KEY')
         publications = ['MyPublication']
         pkg {
-            repo = 'SkyBeast-Maven'
+            repo = 'maven'
             name = 'commandcreator-api'
             userOrg = 'skybeastmc'
             licenses = ['MIT']
@@ -135,7 +135,7 @@ project(":BukkitImpl") {
         key = System.getenv('BINTRAY_KEY')
         publications = ['MyPublication']
         pkg {
-            repo = 'SkyBeast-Maven'
+            repo = 'maven'
             name = 'commandcreator-bukkit'
             userOrg = 'skybeastmc'
             licenses = ['MIT']
@@ -181,7 +181,7 @@ project(":BungeeImpl") {
         key = System.getenv('BINTRAY_KEY')
         publications = ['MyPublication']
         pkg {
-            repo = 'SkyBeast-Maven'
+            repo = 'maven'
             name = 'commandcreator-bungee'
             userOrg = 'skybeastmc'
             licenses = ['MIT']

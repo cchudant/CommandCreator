@@ -5,8 +5,5 @@ package fr.skybeast.commandcreator;
  */
 public class CommandSerializationException extends Exception
 {
-	/**
-	 * {@inheritDoc}
-	 */
 	public CommandSerializationException(String var1) {super(var1);}
 }
