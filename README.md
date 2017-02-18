@@ -6,7 +6,7 @@ With CommandCreator, you can create custom commands for your Bukkit server, or y
 ## Demonstration
 
 You can find a full demonstration [here][Demo1]
-and [here](../src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo2.java).
+and [here][Demo2].
 
 List of features:
 - Tab completion
@@ -23,8 +23,8 @@ List of features:
 - Source code fully (yes, fully) documented
 - [Command compounds](../src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo2.java)
 
-[Demo1]: ../BukkitTestPlugin/src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo1.java
-[Demo2]: ../BukkitTestPlugin/src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo2.java
+[Demo1]: ../master/BukkitTestPlugin/src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo1.java
+[Demo2]: ../master/BukkitTestPlugin/src/main/java/fr/skybeast/commandcreator/testplugin/bukkit/Demo2.java
 
 As I suck at creating neat colored text, I would love your contribution for the default configuration.
 
