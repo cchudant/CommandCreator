@@ -1,16 +1,14 @@
 package fr.skybeast.commandcreator.testplugin.bukkit;
 
-import fr.skybeast.commandcreator.CommandCreator;
 import org.bukkit.plugin.java.JavaPlugin;
 
-/**
- * Created by SkyBeast on 11/02/17.
- */
+//The demo is available in Demo1.java and Demo2.java
 public class Main extends JavaPlugin
 {
 	@Override
 	public void onEnable()
 	{
-		CommandCreator.registerCommands(MyCommand.class, this);
+		Demo1.register(this);
+		Demo2.register(this);
 	}
 }

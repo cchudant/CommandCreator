@@ -164,8 +164,7 @@ final class CmdCompound extends Cmd
 		if (commands.size() == 1)
 			//noinspection OptionalGetWithoutIsPresent
 			return label + ' '
-					+ commands.stream().findFirst().get().getLabel()
-					+ CmdConfig.getCompoundSuffix();
+					+ commands.stream().findFirst().get().getLabel(); //berk
 
 		int i = 0;
 		StringBuilder b2 = new StringBuilder();

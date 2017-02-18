@@ -294,6 +294,8 @@ final class CmdMethod extends Cmd
 			return CmdConfig.getStringSerializer();
 
 		String valueType = serializer.valueType();
+		if(valueType == null)
+			throw new CommandCreationException("Cannot have a null valueType!");
 		return valueType.isEmpty() ? clazz.getSimpleName() : valueType;
 	}
 
@@ -322,7 +324,7 @@ final class CmdMethod extends Cmd
 	{
 		Class[] parameters = method.getParameterTypes();
 
-		if (parameters.length < 2)
+		if (parameters.length < 1)
 			throw new CommandCreationException("Method " + method + " don't accept any command sender");
 
 		senderType = CmdSenderType.get(parameters[0]);
@@ -521,9 +523,11 @@ final class CmdMethod extends Cmd
 		int param = last - loc;
 		String str = cmd[last];
 
+		//-- Serialization handling
 		CommandSerializer<?> serializer = getTabSerializer(param);
 		if (serializer == null)
 		{
+			//-- Choice list handling
 			Map<String, Object> choice = getTabChoiceList(param);
 			if (choice == null)
 				return null;
@@ -546,33 +550,32 @@ final class CmdMethod extends Cmd
 		return tabCompletes.stream()
 				.filter(label -> label.startsWith(str))
 				.collect(Collectors.toList());
-
 	}
 
 	/**
 	 * Get a serializer from its position in the serializer map.
-	 * If i > parametersCount-1, return the array's serializer.
+	 * If array as last arg and i=last arg, return the array's serializer.
 	 *
 	 * @param i the position of the argument
 	 * @return the serializer of the argument
 	 */
 	private CommandSerializer getTabSerializer(int i)
 	{
-		if (i >= parametersCount - 1)
+		if (arrayType != null && i >= parametersCount - 1)
 			return arraySerializer;
 		return getSerializer(i);
 	}
 
 	/**
 	 * Get a choice list from its position in the choice list map.
-	 * If i > parametersCount-1, return the array's choice list.
+	 * If array as last arg and i=last arg, return the array's choice list.
 	 *
 	 * @param i the position of the argument
 	 * @return the serializer of the argument
 	 */
 	private Map<String, Object> getTabChoiceList(int i)
 	{
-		if (i >= parametersCount - 1)
+		if (arrayType != null && i >= parametersCount - 1)
 			return arrayChoice;
 		return getChoiceList(i);
 	}

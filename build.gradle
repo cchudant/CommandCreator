@@ -95,7 +95,7 @@ project(":API") {
             publicDownloadNumbers = true
             version {
                 name = project.version
-                desc = 'CommandCreator API v' + project.version
+                desc = "CommandCreator API v$project.version"
                 attributes = ['gradle-plugin': "$project.group:commandcreator-api:$project.version"]
             }
         }
@@ -143,7 +143,7 @@ project(":BukkitImpl") {
             publicDownloadNumbers = true
             version {
                 name = project.version
-                desc = 'CommandCreator Bukkit v' + project.version
+                desc = "CommandCreator Bukkit v$project.version"
                 attributes = ['gradle-plugin': "$project.group:commandcreator-bukkit:$project.version"]
             }
         }
@@ -189,7 +189,7 @@ project(":BungeeImpl") {
             publicDownloadNumbers = true
             version {
                 name = project.version
-                desc = 'CommandCreator Bungee v' + project.version
+                desc = "CommandCreator Bungee v$project.version"
                 attributes = ['gradle-plugin': "$project.group:commandcreator-bungee:$project.version"]
             }
         }
@@ -211,7 +211,7 @@ project(":BungeeImpl") {
 }
 
 project(":BukkitTestPlugin") {
-    archivesBaseName = 'CommandCreatorBungeeTestPlugin'
+    archivesBaseName = 'CommandCreatorBukkitTestPlugin'
 
     dependencies {
         compile 'org.spigotmc:spigot-api:1.10-R0.1-SNAPSHOT'
@@ -221,7 +221,7 @@ project(":BukkitTestPlugin") {
 }
 
 project(":BungeeTestPlugin") {
-    archivesBaseName = 'CommandCreatorBukkitTestPlugin'
+    archivesBaseName = 'CommandCreatorBungeeTestPlugin'
 
     dependencies {
         compile 'net.md-5:bungeecord-api:1.10-SNAPSHOT'
