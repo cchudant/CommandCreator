@@ -32,11 +32,11 @@ I don't think this color config is really great right now, but everything you se
 
 - Command compound:
 
-[alt text](http://i.imgur.com/hG7TjZs.png)
+![Command compound](http://i.imgur.com/hG7TjZs.png)
 
 - Simple command:
 
-[alt text](http://i.imgur.com/15Q0gf5.png)
+![Simple command](http://i.imgur.com/15Q0gf5.png)
 
 ## Installation
 
