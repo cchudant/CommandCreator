@@ -1,4 +1,4 @@
 name: CommandCreatorBukkit
-version: 1.0
+version: $version
 main: fr.skybeast.commandcreator.bukkit.Main
-author: SkyBeast
+author: $authors

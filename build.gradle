@@ -1,9 +1,24 @@
-group 'CommandCreator'
-version '1.0-SNAPSHOT'
+/*
+ * This file is the build file of CommandCreator by SkyBeast.
+ */
 
-allprojects {
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
 
+def authors = '[SkyBeast]'
+
+task buildImpl(dependsOn: [':API:build', ':BukkitImpl:build', ':BungeeImpl:build'])
+
+task upload(dependsOn: [':buildImpl', ':API:bintrayUpload',
+                        ':BukkitImpl:bintrayUpload',
+                        ':BungeeImpl:bintrayUpload'])
+
+subprojects {
     apply plugin: 'java'
+
+    group = 'fr.skybeast'
+    version = '1.1'
 
     sourceCompatibility = 1.8
 
@@ -32,13 +47,81 @@ allprojects {
         }
     }
 
+    processResources {
+        inputs.property "version", project.version
+
+        from(sourceSets.main.resources.srcDirs) {
+            include "plugin.yml"
+
+            expand 'version': project.version.toString().replace("#", ""), 'authors': authors.toString()
+        }
+    }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+
+    artifacts {
+        archives sourcesJar
+    }
 }
 
 project(":API") {
+    archivesBaseName = 'CommandCreatorAPI'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.jfrog.bintray' // For bintray
+
+    artifacts {
+        archives javadocJar
+    }
+
+    bintray {
+        user = 'skybeastmc'
+        key = System.getenv('BINTRAY_KEY')
+        publications = ['MyPublication']
+        pkg {
+            repo = 'SkyBeast-Maven'
+            name = 'commandcreator-api'
+            userOrg = 'skybeastmc'
+            licenses = ['MIT']
+            vcsUrl = 'https://github.com/SkyBeastMC/CommandCreator.git'
+            publicDownloadNumbers = true
+            version {
+                name = project.version
+                desc = 'CommandCreator API v' + project.version
+                attributes = ['gradle-plugin': "$project.group:commandcreator-api:$project.version"]
+            }
+        }
+    }
+
+    publishing {
+        publications {
+            MyPublication(MavenPublication) {
+                from components.java
+                groupId project.group
+                artifactId 'commandcreator-api'
+                version project.version
+
+                artifact sourcesJar
+                artifact javadocJar
+            }
+        }
+    }
 
 }
 
 project(":BukkitImpl") {
+    archivesBaseName = 'CommandCreatorBukkit'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.jfrog.bintray' // For bintray
 
     dependencies {
         compile 'org.spigotmc:spigot-api:1.10-R0.1-SNAPSHOT'
@@ -47,9 +130,45 @@ project(":BukkitImpl") {
         include project(":API")
     }
 
+    bintray {
+        user = 'skybeastmc'
+        key = System.getenv('BINTRAY_KEY')
+        publications = ['MyPublication']
+        pkg {
+            repo = 'SkyBeast-Maven'
+            name = 'commandcreator-bukkit'
+            userOrg = 'skybeastmc'
+            licenses = ['MIT']
+            vcsUrl = 'https://github.com/SkyBeastMC/CommandCreator.git'
+            publicDownloadNumbers = true
+            version {
+                name = project.version
+                desc = 'CommandCreator Bukkit v' + project.version
+                attributes = ['gradle-plugin': "$project.group:commandcreator-bukkit:$project.version"]
+            }
+        }
+    }
+
+    publishing {
+        publications {
+            MyPublication(MavenPublication) {
+                from components.java
+                groupId project.group
+                artifactId 'commandcreator-bukkit'
+                version project.version
+
+                artifact sourcesJar
+            }
+        }
+    }
+
 }
 
 project(":BungeeImpl") {
+    archivesBaseName = 'CommandCreatorBungee'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.jfrog.bintray' // For bintray
 
     dependencies {
         compile 'net.md-5:bungeecord-api:1.10-SNAPSHOT'
@@ -57,9 +176,42 @@ project(":BungeeImpl") {
         include project(":API")
     }
 
+    bintray {
+        user = 'skybeastmc'
+        key = System.getenv('BINTRAY_KEY')
+        publications = ['MyPublication']
+        pkg {
+            repo = 'SkyBeast-Maven'
+            name = 'commandcreator-bungee'
+            userOrg = 'skybeastmc'
+            licenses = ['MIT']
+            vcsUrl = 'https://github.com/SkyBeastMC/CommandCreator.git'
+            publicDownloadNumbers = true
+            version {
+                name = project.version
+                desc = 'CommandCreator Bungee v' + project.version
+                attributes = ['gradle-plugin': "$project.group:commandcreator-bungee:$project.version"]
+            }
+        }
+    }
+
+    publishing {
+        publications {
+            MyPublication(MavenPublication) {
+                from components.java
+                groupId project.group
+                artifactId 'commandcreator-bungee'
+                version project.version
+
+                artifact sourcesJar
+            }
+        }
+    }
+
 }
 
 project(":BukkitTestPlugin") {
+    archivesBaseName = 'CommandCreatorBungeeTestPlugin'
 
     dependencies {
         compile 'org.spigotmc:spigot-api:1.10-R0.1-SNAPSHOT'
@@ -69,6 +221,7 @@ project(":BukkitTestPlugin") {
 }
 
 project(":BungeeTestPlugin") {
+    archivesBaseName = 'CommandCreatorBukkitTestPlugin'
 
     dependencies {
         compile 'net.md-5:bungeecord-api:1.10-SNAPSHOT'

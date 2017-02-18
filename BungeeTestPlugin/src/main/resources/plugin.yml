@@ -1,4 +1,4 @@
 name: CommandCreatorTestPluginBungee
-version: 1.0
+version: $version
 main: fr.skybeast.commandcreator.testplugin.bungee.Main
-author: SkyBeast
+author: $authors
