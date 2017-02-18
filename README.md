@@ -89,7 +89,7 @@ Register command:
 CommandCreator.registerCommands(MyTestCommand.class, plugin);
 ```
 
-### You can find a full demonstration [here][Demo1]and [here][Demo2].
+### You can find a full demonstration [here][Demo1] and [here][Demo2].
 
 ---------------
 
