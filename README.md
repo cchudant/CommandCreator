@@ -127,7 +127,20 @@ The API for Bukkit and BungeeCord is the same.
 
 To add the CommandCreator API to your plugin, use this dependency:
 
-Maven:
+#### Maven:
+
+- In repositories:
+
+```xml
+
+<repository>
+  <id>skybeast-repo</id>
+  <url>https://dl.bintray.com/skybeastmc/maven</url>
+</repository>
+```
+
+- In dependencies:
+
 ```xml
 <dependency>
   <groupId>fr.skybeast</groupId>
@@ -136,14 +149,19 @@ Maven:
 </dependency>
 ```
 
-Gradle:
+#### Gradle:
+
+- In repositories:
+
 ```groovy
-compile 'fr.skybeast:commandcreator-api:1.1'
+maven {
+    name = 'skybeast-repo'
+    url = 'https://dl.bintray.com/skybeastmc/maven'
+}
 ```
 
-Ivy:
-```xml
-<dependency org='fr.skybeast' name='commandcreator-api' rev='1.1'>
-  <artifact name='commandcreator-api' ext='pom' ></artifact>
-</dependency>
-```
+- In dependencies:
+
+```groovy
+compile 'fr.skybeast:commandcreator-api:1.1'
+``
