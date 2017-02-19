@@ -109,6 +109,43 @@ I don't think this color config is really great right now, but everything you se
 
 ![Simple compound](http://i.imgur.com/ke7CzqF.png)
 
+## Configuration
+
+Here is the default configuration:
+
+```yml
+helpHeader: '§cUsage: §7/%1s'
+helpEntry: '§c- §7%1s'
+optional: '§e§oOptional'
+simpleUsageCompound: '<%1s>'
+simpleUsageRequired: '{%1s}'
+simpleUsageOptional: '[%1s]'
+compoundSuffix: '...'
+separator: '|'
+descriptionSeparator: ' - '
+serializerNames:
+  string: 'String'
+  boolean: 'boolean'
+  character: 'char'
+  byte: 'byte'
+  short: 'short'
+  integer: 'int'
+  long: 'long'
+  float: 'float'
+  double: 'double'
+  player: 'Player'
+  offlinePlayer: 'Offline Player'
+  commandSender: 'Command Sender'
+invalidSenderTypeMessage: '§cYou cannot execute this command as a %1s.'
+noPermissionMessage: '§cYou do not have the permission to use this command.'
+serializationError: '§c%s'
+senderTypes:
+  player: 'Player'
+  console: 'Console'
+  all: 'All'
+  unknown: 'Unknown'
+```
+
 ## Installation
 
 ### Plugin
