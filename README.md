@@ -111,7 +111,7 @@ I don't think this color config is really great right now, but everything you se
 
 ## Configuration
 
-Here is the default configuration:
+Here is the default configuration at ./plugins/CommandCreator/messages.yml in your server.
 
 ```yml
 helpHeader: '§cUsage: §7/%1s'
