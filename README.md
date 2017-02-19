@@ -145,7 +145,7 @@ To add the CommandCreator API to your plugin, use this dependency:
 <dependency>
   <groupId>fr.skybeast</groupId>
   <artifactId>commandcreator-api</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 </dependency>
 ```
 
@@ -163,5 +163,5 @@ maven {
 - In dependencies:
 
 ```groovy
-compile 'fr.skybeast:commandcreator-api:1.1'
+compile 'fr.skybeast:commandcreator-api:1.2'
 ```
