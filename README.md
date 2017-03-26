@@ -156,7 +156,7 @@ Compatibility:
 - Bukkit
 - BungeeCord
 
-[[Latest release](../releases/latest)]
+[[Latest release](../../releases/latest)]
 
 ### API
 
