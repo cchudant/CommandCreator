@@ -1,5 +1,5 @@
 # CommandCreator
-Creating commands in BungeeCord and Bukkit was never this simple!
+Creating commands in BungeeCord and Bukkit never was this simple!
 
 With CommandCreator, you can create custom commands for your Bukkit server, or your BungeeCord proxy.
 
